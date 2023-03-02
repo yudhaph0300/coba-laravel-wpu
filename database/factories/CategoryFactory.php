@@ -17,7 +17,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->sentence(mt_rand(1, 3)),
+            'slug' => $this->faker->slug()
         ];
     }
 }

@@ -35,7 +35,7 @@ Route::get('/about', function () {
 
 
 
-Route::get('/blog', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index']);
 
 
 // Halaman Single Post
@@ -50,20 +50,21 @@ Route::get('/categories', function () {
     ]);
 });
 
-// Category
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('posts', [
-        'title' => "Post By Caegory: $category->name",
-        "active" => "categories",
-        'posts' => $category->posts->load('category', 'author'),
+// // Category
+// Route::get('/categories/{category:slug}', function (Category $category) {
+//     return view('posts', [
+//         'title' => "Post By Caegory: $category->name",
+//         "active" => "categories",
+//         'posts' => $category->posts->load('category', 'author'),
 
-    ]);
-});
+//     ]);
+// });
 
-// author
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('posts', [
-        'title' => "Post By Author : $author->name",
-        'posts' => $author->posts->load('category', 'author')
-    ]);
-});
+// // author
+// Route::get('/authors/{author:username}', function (User $author) {
+//     return view('posts', [
+//         'title' => "Post By Author : $author->name",
+//         "active" => "posts",
+//         'posts' => $author->posts->load('category', 'author')
+//     ]);
+// });

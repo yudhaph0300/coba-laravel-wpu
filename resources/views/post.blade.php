@@ -11,14 +11,14 @@
                     </h2>
                     <p>By <a href="/authors/{{ $post->author->username }}"
                             class="text-decoration-none">{{ $post->author->name }} </a> in
-                        <a href="/categories/{{ $post->category->slug }}"
+                        <a href="/posts?category={{ $post->category->slug }}"
                             class="text-decoration-none">{{ $post->category->name }}</a>
                     </p>
                     <img class="img-fluid mb-3" src="https://source.unsplash.com/1200x400?tecnology" alt="Card image cap">
                     {!! $post->body !!}
                 </article>
 
-                <a href="/blog">Back to posts</a>
+                <a href="/posts">Back to posts</a>
             </div>
         </div>
     </div>

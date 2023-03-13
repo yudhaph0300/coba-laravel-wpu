@@ -8,7 +8,8 @@
                 <div class="col-md-4">
                     <a href="/posts?category={{ $category->slug }}">
                         <div class="card bg-dark text-white">
-                            <img class="card-img" src="https://source.unsplash.com/600x400?tecnology" alt="Card image">
+                            <img class="card-img" src="https://source.unsplash.com/600x400?{{ $category->name }}"
+                                alt="Card image">
                             <div class="card-img-overlay d-flex align-items-center p-0">
                                 <h5 class="card-title text-center flex-fill p-4 fs-3"
                                     style="background-color: rgba(0, 0, 0, 0.7)">

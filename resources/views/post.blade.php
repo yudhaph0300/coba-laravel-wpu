@@ -14,7 +14,8 @@
                         <a href="/posts?category={{ $post->category->slug }}"
                             class="text-decoration-none">{{ $post->category->name }}</a>
                     </p>
-                    <img class="img-fluid mb-3" src="https://source.unsplash.com/1200x400?tecnology" alt="Card image cap">
+                    <img class="img-fluid mb-3" src="https://source.unsplash.com/1200x400?{{ $post->category->name }}"
+                        alt="Card image cap">
                     {!! $post->body !!}
                 </article>
 

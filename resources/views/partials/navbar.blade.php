@@ -21,13 +21,42 @@
                 </li>
 
             </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link {{ $active === 'login' ? 'active' : '' }}" href="/login"><i
-                            class="bi bi-box-arrow-in-right pe-2"></i>Login</a>
-                </li>
 
-            </ul>
+            <ul class="navbar-nav ms-auto">
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Welcome back, {{ auth()->user()->name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/dashboard"><i
+                                        class="bi bi-layout-text-sidebar-reverse me-2"></i>My
+                                    Dashboard</a></li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item"><i
+                                            class="bi bi-box-arrow-right me-2"></i>Logout</button>
+                                </form>
+                            </li>
+
+                        </ul>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link {{ $active === 'login' ? 'active' : '' }}" href="/login"><i
+                                class="bi bi-box-arrow-in-right pe-2"></i>Login</a>
+                    </li>
+
+                </ul>
+            @endauth
+
+
 
         </div>
     </div>

@@ -10,12 +10,28 @@
         <form action="/dashboard/posts" method="POST">
             @csrf
             <div class="form-group mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <label for="title" class="form-label ">Title</label>
+                <input type="text" class="form-control @error('title')
+                is-invalid
+            @enderror"
+                    id="title" name="title" required autofocus value="{{ old('title') }}">
+                @error('title')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="form-group mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" id="slug" name="slug" readonly>
+                <input type="text" class="form-control @error('slug')
+                is-invalid
+            @enderror"
+                    id="slug" name="slug" readonly required value="{{ old('slug') }}">
+                @error('slug')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="form-group mb-3">
                 <label for="category" class="form-label">Category</label>
@@ -27,7 +43,15 @@
             </div>
             <div class="form-group mb-3">
                 <label for="body" class="form-label">Body</label>
-                <textarea class="form-control" id="body" name="body" rows="5"></textarea>
+                <textarea class="form-control @error('body')
+                is-invalid
+            @enderror" id="body"
+                    name="body" rows="5" required value="{{ old('body') }}"></textarea>
+                @error('body')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <button type="submit" class="btn btn-primary">Create Post</button>

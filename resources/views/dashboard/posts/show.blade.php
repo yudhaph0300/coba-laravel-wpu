@@ -14,9 +14,15 @@
                         <a href="/dashboard/posts" class="btn btn-success"><span data-feather="arrow-left"
                                 class="me-1"></span>Back to all my
                             posts</a>
-                        <a href="" class="btn btn-warning"><span data-feather="edit" class="me-1"></span>Edit</a>
-                        <a href="" class="btn btn-danger"><span data-feather="x-circle"
-                                class="me-1"></span>Delete</a>
+                        <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning"><span data-feather="edit"
+                                class="me-1"></span>Edit</a>
+
+                        <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-danger border-0" onclick="return confirm('Delete Data?')"><span
+                                    class="me-1" data-feather="x-circle"></span>Delete</button>
+                        </form>
                     </div>
 
 

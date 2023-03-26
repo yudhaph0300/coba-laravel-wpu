@@ -25,9 +25,14 @@
                         </form>
                     </div>
 
+                    @if ($post->image)
+                        <img class="img-fluid mb-3" src="{{ asset('storage/' . $post->image) }}"
+                            alt="{{ $post->category->name }}">
+                    @else
+                        <img class="img-fluid mb-3" src="https://source.unsplash.com/1200x400?{{ $post->category->name }}"
+                            alt="{{ $post->category->name }}">
+                    @endif
 
-                    <img class="img-fluid mb-3" src="https://source.unsplash.com/1200x400?{{ $post->category->name }}"
-                        alt="Card image cap">
                     {!! $post->body !!}
                 </article>
 
